@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: deployment
+
+metadata:
+  labels:
+    app: quake3
+
+  name: quake3
+  namespace: default
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quake3
+
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: quake3
+
+    spec:
+      containers:
+        - name: quake3
+          image: gcr.io/neat-spark-277400/quake3:latest
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 27960
+              protocol: UDP
+
+          resources:
+            limits:
+              cpu: 250m
+              memory: 500Mi
+
+            requests:
+              cpu: 128m
+              memory: 80Mi
+
+    dnsPolicy: ClusterFirst
+    restartPolicy: Always
+    securityContext: {}
