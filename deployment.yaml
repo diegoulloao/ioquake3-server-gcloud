@@ -23,8 +23,11 @@ spec:
     spec:
       containers:
         - name: quake3
-          image: gcr.io/norse-lotus-371108/quake3:latest
+          image: gcr.io/${PROJECT_ID}/${CONTAINER_IMAGE}
           imagePullPolicy: Always
+          env:
+            - name: VERSION_HASH
+              value: ${COMMIT_HASH}
 
           ports:
             - containerPort: 27960

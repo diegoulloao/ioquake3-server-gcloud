@@ -38,3 +38,4 @@ Temporary Items
 
 # custom
 .env
+.deployment.tmp.yaml
