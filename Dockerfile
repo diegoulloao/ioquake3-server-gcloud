@@ -14,7 +14,7 @@ COPY lib/baseq3/pak7.pk3 /usr/lib/ioquake3/baseq3
 COPY lib/baseq3/pak8.pk3 /usr/lib/ioquake3/baseq3
 
 # copy config file
-COPY lib/server.cfg /usr/lib/ioquake3/baseq3
+COPY server.cfg /usr/lib/ioquake3/baseq3
 
 # system user
 RUN adduser --disabled-password q3user_svc
