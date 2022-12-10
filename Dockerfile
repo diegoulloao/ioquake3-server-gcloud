@@ -14,7 +14,7 @@ COPY lib/baseq3/pak7.pk3 /usr/lib/ioquake3/baseq3
 COPY lib/baseq3/pak8.pk3 /usr/lib/ioquake3/baseq3
 
 # copy config file
-COPY serversetup.cfg /usr/lib/ioquake3/baseq3
+COPY lib/server.cfg /usr/lib/ioquake3/baseq3
 
 # system user
 RUN adduser --disabled-password q3user_svc
@@ -22,4 +22,4 @@ USER q3user_svc
 
 # exec server
 ENTRYPOINT ["/usr/lib/ioquake3/ioq3ded", "+exec"]
-CMD ["serversetup.cfg"]
+CMD ["server.cfg"]
