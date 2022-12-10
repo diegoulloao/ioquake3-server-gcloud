@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: deployment
+kind: Deployment
 
 metadata:
   labels:
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: quake3
-          image: gcr.io/neat-spark-277400/quake3:latest
+          image: gcr.io/norse-lotus-371108/quake3:latest
           imagePullPolicy: Always
 
           ports:
@@ -39,6 +39,6 @@ spec:
               cpu: 128m
               memory: 80Mi
 
-    dnsPolicy: ClusterFirst
-    restartPolicy: Always
-    securityContext: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext: {}

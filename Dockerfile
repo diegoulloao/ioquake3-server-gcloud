@@ -4,7 +4,6 @@ RUN apt-get update && apt-get install -y ioquake3 ioquake3-server
 
 # copy pk3 dependencies
 COPY lib/baseq3/pak0.pk3 /usr/lib/ioquake3/baseq3
-
 COPY lib/baseq3/pak1.pk3 /usr/lib/ioquake3/baseq3
 COPY lib/baseq3/pak2.pk3 /usr/lib/ioquake3/baseq3
 COPY lib/baseq3/pak3.pk3 /usr/lib/ioquake3/baseq3
