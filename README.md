@@ -46,7 +46,10 @@ docker run -p 27960:27960/udp -it quake3
 You should be able to find the running server in the quake3 multiplayer section.
 
 # 3. Configuring the Server ⚙️
+
 You can configure the server by editing the `server.cfg` file.
+
+Then is necessary to re-build the image and run a new container from it.
 
 # 4. Deploying to Google Cloud 🌐
 
@@ -82,6 +85,7 @@ quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 ```
 
 # 5. Considerations 🔶
+
 All deploys to Google Cloud Kubernetes will trigger the changes only if a new commit is detected.
 The deploy system uses the latest commit hash in order to identify changes in the environment and tell to Kubernetes that the container must be re-deployed.
 
