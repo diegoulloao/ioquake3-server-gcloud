@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+
+# Deploy script
+# file in charge to deploy the container into kubernetes to Google Cloud
 
 # load project environment variables
 set -a; source .env; set +a
@@ -39,3 +42,5 @@ rm .deployment.tmp.yaml
 
 # print cluster info
 kubectl get svc quake3
+
+exit 0
