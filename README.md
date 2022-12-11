@@ -81,7 +81,21 @@ NAME     TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)           AGE
 quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 ```
 
-# 5. Troubleshooting ⚡️
+# 5. Considerations 🔶
+All deploys to Google Cloud Kubernetes will trigger the changes only if a new commit is detected.
+The deploy system uses the latest commit hash in order to identify changes in the environment and tell to Kubernetes that the container must be re-deployed.
+
+If you want to force a deploy without commit your changes you can run:
+
+```bash
+./deploy -a
+```
+
+The flag `-a` means allow-empty.
+
+In this case the deploy system will use a timestamp code as hash in order to cause changes in the environment.
+
+# 6. Troubleshooting ⚡️
 
 - Permission denied when running the scripts:
 
