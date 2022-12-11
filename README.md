@@ -37,7 +37,7 @@ Build the Docker image:
 docker build -t quake3 .
 ```
 
-Run the server:
+Run the server in a container:
 
 ```bash
 docker run -p 27960:27960/udp -it quake3
