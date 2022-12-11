@@ -50,5 +50,3 @@ else
 fi
 
 echo "\033[0;32m-> all dependencies are satisfied ✓\033[0m"
-
-exit 0
