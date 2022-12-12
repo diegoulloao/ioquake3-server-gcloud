@@ -26,13 +26,16 @@ HASH=$([ ! -z "$1" ] && [ "$1" == "-a" ] && \
 source $CURRENT_DIR/prepare.sh
 
 # deploying user feedback message
-echo "\nDeploying to Google Cloud...\n"
+echo "\nBuilding Docker Image...\n"
 
 # authentication
 gcloud config set project $PROJECT_ID
 
 # build docker image (linux arm64 specific)
 docker build --platform=linux/amd64 -t quake3 .
+
+# deploying user feedback message
+echo "\nDeploying to Google Cloud...\n"
 
 # upload image to the cloud register
 gcloud auth configure-docker
