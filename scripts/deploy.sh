@@ -1,10 +1,13 @@
 #!/bin/sh
 
 # Deploy script
-# file in charge to deploy the container into kubernetes to Google Cloud
+# @description file in charge to deploy the container into kubernetes to Google Cloud
 
 # load project environment variables
 set -a; source .env; set +a
+
+# exit on error
+set -e
 
 # current working dir
 CURRENT_DIR="$(dirname "$0")"
@@ -26,7 +29,7 @@ HASH=$([ ! -z "$1" ] && [ "$1" == "-a" ] && \
 source $CURRENT_DIR/prepare.sh
 
 # deploying user feedback message
-echo "\nBuilding Docker Image...\n"
+echo "\n\033[0;36mBuilding Docker Image...\033[0m\n"
 
 # authentication
 gcloud config set project $PROJECT_ID
@@ -61,9 +64,9 @@ kubectl apply -f services.yaml
 rm .deployment.tmp.yaml
 
 # deploy completed user feedback
-echo "\n\033[1;32mDeploy completed.\033[0m\n"
+echo "\n\033[1;32mDeploy completed ✓\033[0m\n"
 
 # print cluster info
 kubectl get svc quake3
 
-exit 0
+echo ""

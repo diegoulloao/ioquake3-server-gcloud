@@ -1,10 +1,13 @@
 #!/bin/sh
 
 # Prepare script
-# file in charge of fetch all quake3 missing dependencies
+# @description file in charge of fetch all quake3 missing dependencies
 
 # exit on error
 set -e
+
+# start time
+start_time=$(date +%s)
 
 declare -r pak0="https://github.com/nrempel/q3-server/raw/master/baseq3/pak0.pk3"
 declare -r pak="https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak@.pk3"
@@ -50,3 +53,16 @@ else
 fi
 
 echo "\033[0;32m-> all dependencies are satisfied ✓\033[0m"
+
+# end time
+end_time=$(date +%s)
+
+# runtime calculation
+runtime=$((end_time - start_time))
+
+# task time output
+if [ $FETCHED_PACKAGES -gt 0 ]; then
+  echo "\033[0;36mTime elapsed: $(((runtime % 3600) / 60))min $(((runtime % 3600) % 60))seg\033[0m\n"
+else
+  echo ""
+fi
