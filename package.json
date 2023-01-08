@@ -10,7 +10,7 @@
     "create:cluster": "./scripts/create-cluster.sh",
     "deploy": "./scripts/deploy.sh",
     "deploy:force": "./scripts/deploy.sh -a",
-    "create:remote": "npm run prepare && npm run create:cluster && npm run deploy",
+    "create:remote": "npm run prepare && npm run create:cluster && npm run deploy -- --no-verify-deps",
     "delete:remote": "./scripts/delete-remote.sh",
     "ip": "./scripts/ip.sh",
     "commands": "./scripts/commands.sh"

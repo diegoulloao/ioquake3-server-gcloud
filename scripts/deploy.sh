@@ -26,10 +26,16 @@ HASH=$([ ! -z "$1" ] && [ "$1" == "-a" ] && \
 )
 
 # sync dependencies
-source $CURRENT_DIR/prepare.sh
+if [ -z "$1" ] || [ "$1" != "--no-verify-deps" ]; then
+  source $CURRENT_DIR/prepare.sh
+fi
 
 # deploying user feedback message
-echo "\n\033[0;36mBuilding Docker Image...\033[0m\n"
+echo "\033[0;36m
+******************************************************************************
+        Building Docker image ...
+******************************************************************************
+\033[0m"
 
 # authentication
 gcloud config set project $PROJECT_ID
@@ -38,7 +44,11 @@ gcloud config set project $PROJECT_ID
 docker build --platform=linux/amd64 -t quake3 .
 
 # deploying user feedback message
-echo "\nDeploying to Google Cloud...\n"
+echo "\n\033[0;36m
+******************************************************************************
+        Deploying container to Google Cloud ...
+******************************************************************************
+\033[0m"
 
 # upload image to the cloud register
 gcloud auth configure-docker

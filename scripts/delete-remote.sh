@@ -13,7 +13,11 @@ set -e
 start_time=$(date +%s)
 
 # user feedback output
-echo "\n\033[0;36mDeleting cluster $CLUSTER from google cloud... [average time: 6min]\033[0m\n"
+echo "\n\033[0;36m
+******************************************************************************
+        Deleting Cluster $CLUSTER from Google Cloud ... [average time: 7min]
+******************************************************************************
+\033[0m"
 
 # delete cluster from google cloud
 gcloud container clusters delete $CLUSTER --region $ZONE
@@ -28,4 +32,4 @@ end_time=$(date +%s)
 runtime=$((end_time - start_time))
 
 # task time output
-echo "\033[0;36mTime elapsed: $(((runtime % 3600) / 60))min $(((runtime % 3600) % 60))seg\033[0m\n"
+echo "\033[0;36mElapsed time: $(((runtime % 3600) / 60))min $(((runtime % 3600) % 60))seg\033[0m\n"
