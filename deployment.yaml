@@ -27,7 +27,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: VERSION_HASH
-              value: ${HASH}
+              value: "${HASH}"
 
           ports:
             - containerPort: 27960
