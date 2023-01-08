@@ -23,8 +23,8 @@ FETCHED_PACKAGES=0
 
 # fetch pak0.pk3
 if [ ! -f lib/baseq3/pak0.pk3 ]; then
-  echo "\n\033[0;37mMissing pak0.pk3\033[0m"
-  echo "Downloading pak0.pk3 ..."
+  echo "\033[0;37mMissing pak0.pk3\033[0m"
+  echo "\033[0;37mDownloading pak0.pk3 ...\033[0m\n"
 
   curl -L $pak0 > lib/baseq3/pak0.pk3
   FETCHED_PACKAGES=1
@@ -36,8 +36,12 @@ COUNT=1
 # fetch pak[1-8].pk3
 while [ $COUNT -lt 9 ]; do
   if [ ! -f lib/baseq3/pak$COUNT.pk3 ]; then
-    echo "\n\033[0;37mMissing pak$COUNT.pk3\033[0m"
-    echo "\n\033[0;37mDownloading pak$COUNT.pk3 ...\033[0m\n"
+    if [ "$FETCHED_PACKAGES" == "1" ]; then
+      echo ""
+    fi
+
+    echo "\033[0;37mMissing pak$COUNT.pk3\033[0m"
+    echo "\033[0;37mDownloading pak$COUNT.pk3 ...\033[0m\n"
 
     curl -L ${pak/@/$COUNT} > lib/baseq3/pak$COUNT.pk3
 
@@ -51,7 +55,7 @@ done
 
 # user feedback messages
 if [ $FETCHED_PACKAGES == 1 ]; then
-  echo "\033[0;32m-> pk3 files downloaded.\033[0m"
+  echo "\n\033[0;32m-> pk3 files downloaded ✓\033[0m"
 else
   echo "\033[0;32m-> pk3 files up to date ✓\033[0m"
 fi
