@@ -186,7 +186,7 @@ You can play with the `create:remote` and `delete:remote` commands for only have
 
 The deploy system provided here uses the latest commit hash in order to identify changes in the environment and tell to Kubernetes that the container must be re-deployed.
 
-If you want to force the deploy without commit your changes, you can run:
+If you want to force the deploy without committing your changes, you can run:
 
 ```bash
 ./q3s deploy:force
