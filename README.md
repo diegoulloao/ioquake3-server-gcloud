@@ -143,7 +143,8 @@ To erease your server completely, run the following command:
 ./q3s delete:remote
 ```
 
-**This will permanently erase your cluster, forever. You can not revert this process.**
+> [!WARNING]
+> This will permanently erase your cluster, forever. You can not revert this process.
 
 This works very well when you want to prevent your server from incurring increased costs on Google Cloud. No cost will be generated because your server will be completely erased.
 
