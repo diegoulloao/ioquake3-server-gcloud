@@ -75,9 +75,7 @@ quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 
 # 4. Run server on localhost 🚀
 
-Please follow the steps `1-4` described in the next section:
-
-[5. Build and deploy manually](#5-build-and-deploy-manually-) <small>(recommended)</small>
+Please follow the steps `1-4` described in the next section: [5. Build and deploy manually](#5-build-and-deploy-manually-) <small>(recommended)</small>
 
 <details>
   <summary>Alternatively you can run each command manually <small>(advanced)</small></summary>
