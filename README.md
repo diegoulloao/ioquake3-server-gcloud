@@ -78,7 +78,7 @@ quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 Please follow the steps `1-4` described in the next section: [5. Build and deploy manually](#5-build-and-deploy-manually-) <small>(recommended)</small>
 
 <details>
-  <summary>Alternatively you can run each command manually <small>(advanced)</small></summary>
+  <summary>Alternatively you can run each command <small>(advanced)</small></summary>
 
   <br />
   
@@ -159,7 +159,7 @@ chmod +x q3s
 
 ---
 
-**Important:**
+**Important: About running on localhost** 💡
 
 You only need to do this process once, after that, you will need to rebuild the image only if changes are applied to your `server.cnf` file.
 
