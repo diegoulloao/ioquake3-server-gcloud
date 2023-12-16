@@ -44,7 +44,7 @@ You can customize the server by editing the `server.cfg` file.
 **This step is not necessary**, the repository comes with a ready-made server configuration.
 
 > [!NOTE]
-> You will need to rebuild the docker container every time your `server.cnf` file changes
+> You will need to rebuild the docker container every time your `server.cfg` file changes
 
 # 3. Q3 server to Google Cloud 🌐
 
@@ -111,7 +111,7 @@ docker run -p 27960:27960/udp -it quake3
 
 **Important** 💡
 
-You only need to do this process once, after that, you will need to rebuild the image only if changes are applied to your `server.cnf` file.
+You only need to do this process once, after that, you will need to rebuild the image only if changes are applied to your `server.cfg` file.
 
 Next time you want to run your server locally just use the `./q3s start` command.
 
