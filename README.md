@@ -37,14 +37,14 @@ CLUSTER=quake3-cluster-1
 ZONE=us-central-1
 ```
 
-# 2. Configuring the Server (optional) ⚙️
+# 2. Configure the Server ⚙️
 
 You can customize the server by editing the `server.cfg` file.
 
 **This step is not necessary**, the repository comes with a ready-made server configuration.
 
 > [!NOTE]
-> you will need to rebuild the docker container every time your `server.cnf` file changes
+> You will need to rebuild the docker container every time your `server.cnf` file changes
 
 # 3. Q3 server to Google Cloud
 
@@ -71,16 +71,16 @@ quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 ```
 
 > [!NOTE]
-> your Google Cloud CLI need to be properly linked to your account
+> Your Google Cloud CLI need to be properly linked to your account
 
-# 4. Running server on localhost
+# 4. Run server on localhost
 
 Please follow the steps `1-4` described in the next section.
 
 Or just run manually:
 
 ```bash
-# give execution permissions to all scripts (if you did not)
+# give permissions to all scripts (if you did not)
 chmod +x ./scripts/*.sh
 
 # copy the pk3 files into the baseq3 folder or download them automatically by running
@@ -95,7 +95,7 @@ docker run -p 27960:27960/udp -it quake3 # or ./q3s start
 
 After this process, you should be able to connect to your local server from the multiplayer section in your client quake3.
 
-# 5. Building and deploying manually 💻
+# 5. Build and deploy manually 💻
 
 In order to have more control during the building and deployment process, you can take the following steps:
 
@@ -135,7 +135,7 @@ chmod +x q3s
 ./q3s deploy
 ```
 
-# 6. Erasing server from Google Cloud
+# 6. Erase server from Google Cloud
 
 To erease your server completely, run the following command:
 
