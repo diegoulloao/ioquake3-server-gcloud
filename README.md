@@ -58,7 +58,7 @@ You can customize the server by editing the `server.cfg` file.
 
 1. add permissions to all scripts
 2. download all pk3 files
-3. build the docker container
+3. build the docker image
 4. run the docker container
 5. create the google cloud cluster in your account
 6. deploy the container to your google cloud cluster
