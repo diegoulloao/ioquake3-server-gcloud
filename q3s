@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# name: ioquake3-server-gcloud
+# version: 1.0.0
+# description: the fastest way to deploy your own ioquake3 server using docker + kubernetes and google cloud
+# author: diegoulloao
+# license: MIT
+# homepage: https://github.com/diegoulloao/ioquake3-server-disruption#readme
+
+# executed command
+prompt_cmd=$1
+
+# exit if no args is provided
+if [ -z "$prompt_cmd" ]; then
+  echo "No command provided." && exit 0
+fi
+
+# command list initialization
+commands=(
+  "./scripts/prepare.sh" #0
+  "./scripts/create-cluster.sh" #1
+  "./scripts/deploy.sh" #2
+  "./scripts/delete-remote.sh" #3
+  "./scripts/ip.sh" #4
+  "./scripts/commands.sh" #5
+  "chmod 755 ./scripts/*.sh" #6
+  "docker build -t quake3 ." #7
+  "docker run -p 27960:27960/udp -it quake3" #8
+)
+
+# get cmd to run based on prompt
+function get_run_cmd () {
+  case $prompt_cmd in
+    'permissions') echo ${commands[6]};;
+    'prepare') echo "${commands[6]} && ${commands[0]}";;
+    'build') echo ${commands[7]};;
+    'start') echo ${commands[8]};;
+    'create:cluster') echo ${commands[1]};;
+    'deploy') echo ${commands[2]};;
+    'deploy:force') echo "${commands[2]} -a";;
+    'create:remote') echo "${commands[6]} && ${commands[0]} && ${commands[1]} && ${commands[2]} -- --no-verify-deps";;
+    'delete:remote') echo ${commands[3]};;
+    'ip') echo ${commands[4]};;
+    'commands') echo ${commands[5]};;
+  esac
+}
+
+# command to run
+run_cmd=$(get_run_cmd)
+
+# exit if no valid command is provided
+if [ -z "$run_cmd" ]; then
+  echo "$prompt_cmd is not a valid command." && exit 0
+fi
+
+# execute the command
+$run_cmd
