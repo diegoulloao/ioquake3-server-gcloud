@@ -166,7 +166,43 @@ Internally, this will run the deploy script using the `-a` flag which means `all
 
 In this case, the deploy system will use a timestamp as hash in order to cause changes in the environment allowing deploy as normal.
 
-# 8. Troubleshooting ⚡️
+# 8. Command list
+
+You can list all the commands available from your terminal by running:
+
+```bash
+./q3s help
+```
+
+**Help**
+
+```bash
++----------------+-----------------------------------------------------------------------------+
+| command        | description                                                                 |
++================+=============================================================================+
+| permissions    | give to scripts necessary permissions to run in the system                  |
++----------------+-----------------------------------------------------------------------------+
+| prepare        | give permissions to the scripts and download dependencies                   |
++----------------+-----------------------------------------------------------------------------+
+| build          | build docker image                                                          |
++----------------+-----------------------------------------------------------------------------+
+| start          | create container and run the server in localhost                            |
++----------------+-----------------------------------------------------------------------------+
+| create:cluster | create cluster in google cloud                                              |
++----------------+-----------------------------------------------------------------------------+
+| deploy         | deploy the server to the cluster in google cloud                            |
++----------------+-----------------------------------------------------------------------------+
+| deploy:force   | force deploy the server even when there are no new commits                  |
++----------------+-----------------------------------------------------------------------------+
+| create:remote  | create cluster in google cloud, download dependencies and deploy the server |
++----------------+-----------------------------------------------------------------------------+
+| delete:remote  | deletes the cluster from google cloud                                       |
++----------------+-----------------------------------------------------------------------------+
+| ip             | displays the server public ip                                               |
++----------------+-----------------------------------------------------------------------------+
+```
+
+# 9. Troubleshooting ⚡️
 
 - Permission denied when running the scripts:
 

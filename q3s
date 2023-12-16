@@ -41,7 +41,7 @@ function get_run_cmd () {
     'create:remote') echo "${commands[6]} && ${commands[0]} && ${commands[1]} && ${commands[2]} -- --no-verify-deps";;
     'delete:remote') echo ${commands[3]};;
     'ip') echo ${commands[4]};;
-    'commands') echo ${commands[5]};;
+    'help') echo ${commands[5]};;
   esac
 }
 
