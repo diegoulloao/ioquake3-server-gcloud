@@ -87,7 +87,7 @@ Please follow the steps `1-4` described in the next section: [5. Build and deplo
 chmod +x ./scripts/*.sh
   ```
 
-2. Copy all pk3 files inside `baseq3` or let the script download them for you
+2. Copy all pk3 files inside `lib/baseq3` or let the script download them for you
 
 ```bash
 ./scripts/prepare.sh
