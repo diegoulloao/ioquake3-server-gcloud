@@ -107,7 +107,15 @@ docker run -p 27960:27960/udp -it quake3
 
 </details>
 
-<br />
+---
+
+**Important** 💡
+
+You only need to do this process once, after that, you will need to rebuild the image only if changes are applied to your `server.cnf` file.
+
+Next time you want to run your server locally just use the `./q3s start` command.
+
+---
 
 After the process, you should be able to connect to your local server from the multiplayer section in your client quake3.
 
@@ -156,14 +164,6 @@ chmod +x q3s
 ```
 
 **Now is live on Google Cloud** 🌐
-
----
-
-**Important: About running on localhost** 💡
-
-You only need to do this process once, after that, you will need to rebuild the image only if changes are applied to your `server.cnf` file.
-
-Next time you want to run your server locally just use the `./q3s start` command.
 
 # 6. Erase server from Google Cloud ⭕
 
