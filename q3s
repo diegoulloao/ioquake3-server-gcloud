@@ -23,7 +23,7 @@ commands=(
   "./scripts/delete-remote.sh" #3
   "./scripts/ip.sh" #4
   "./scripts/commands.sh" #5
-  "chmod 755 ./scripts/*.sh" #6
+  "chmod +x ./scripts/*.sh" #6
   "docker build -t quake3 ." #7
   "docker run -p 27960:27960/udp -it quake3" #8
 )

@@ -9,55 +9,23 @@
 ---
 
 <p align="center">
-  <b><a href="https://github.com/diegoulloao/ioquake3-server-gcloud">The fastest way to create your own quake3 server using Google Cloud, Docker and Kubernetes</a></b>
+  <b><a href="https://github.com/diegoulloao/ioquake3-server-gcloud">The fastest way to create your own quake3 server using Docker, Kubernetes and Google Cloud</a></b>
 </p>
 
 ---
 
-# 1. Prerequisites 📋
+# Prerequisites 📋
 
 1. Google Cloud account
-2. Google Cloud CLI installed and configured
+2. Google Cloud CLI installed, configured and linked to your account
 3. Docker
 4. Git
 
-[Read more +](https://github.com/diegoulloao/ioquake3-server-gcloud/tree/main/docs/prerequisites.md)
+<!-- [Read more +](https://github.com/diegoulloao/ioquake3-server-gcloud/tree/main/docs/prerequisites.md) -->
 
-# 2. Running in localhost 💻
+# 1. Add the environment variables
 
-Copy the `pak[0-8].pk3` dependencies into the `lib/baseq3` folder or let the script download them for you:
-
-```bash
-./prepare.sh
-```
-
-Build the Docker image:
-
-```bash
-docker build -t quake3 .
-```
-
-Run the server in a container:
-
-```bash
-docker run -p 27960:27960/udp -it quake3
-```
-
-You should be able to find the running server in the quake3 multiplayer section.
-
-# 3. Configuring the Server ⚙️
-
-You can configure the server by editing the `server.cfg` file.
-
-Then is necessary to re-build the image and run a new container from it.
-
-# 4. Deploying to Google Cloud 🌐
-
-> Deploying to Google Cloud Kubernetes is pretty simple and fast.
-
-Copy the `pak[0-8].pk3` dependencies into the `lib/baseq3` folder if you didn't (optional).
-
-Copy the `.env.example` -> `.env` and fill the **projects** and **clusters** env vars taking the values from google cloud:
+Copy the `.env.example -> .env` and fill the environment variables for **projects** and **clusters** by taking the values from your google cloud account:
 
 ```bash
 # project
@@ -69,44 +37,146 @@ CLUSTER=quake3-cluster-1
 ZONE=us-central-1
 ```
 
-[Read more +](https://github.com/diegoulloao/ioquake3-server-gcloud/tree/main/docs/env-vars.md)
+# 2. Configuring the Server (optional) ⚙️
 
-Run the deploy:
+You can customize the server by editing the `server.cfg` file.
+
+**This step is not necessary**, the repository comes with a ready-made server configuration.
+
+> [!NOTE]
+> you will need to rebuild the docker container every time your `server.cnf` file changes
+
+# 3. Q3 server to Google Cloud
+
+**Get your server ready to play in 1 command:**
 
 ```bash
-./deploy.sh
+./q3s create:remote
 ```
 
-In a couple of seconds your server should be online and ready to kick asses:
+**This will:**
+
+1. add permissions to all scripts
+2. download all pk3 files
+3. build the docker container
+4. run the docker container
+5. create the google cloud cluster in your account
+6. deploy the container to your google cloud cluster
+
+**After a couple of seconds your server should be online and ready to play:**
 
 ```
 NAME     TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)           AGE
 quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 ```
 
-# 5. Considerations 🔶
+> [!NOTE]
+> your Google Cloud CLI need to be properly linked to your account
 
-All deploys to Google Cloud Kubernetes will trigger the changes only if a new commit is detected.
-The deploy system uses the latest commit hash in order to identify changes in the environment and tell to Kubernetes that the container must be re-deployed.
+# 4. Running server on localhost
 
-If you want to force a deploy without commit your changes you can run:
+Please follow the steps `1-4` described in the next section.
+
+Or just run manually:
 
 ```bash
-./deploy -a
+# give execution permissions to all scripts (if you did not)
+chmod +x ./scripts/*.sh
+
+# copy the pk3 files into the baseq3 folder or download them automatically by running
+./scripts/prepare.sh # or ./q3s prepare
+
+# build the docker image
+docker build -t quake3 . # or ./q3s build
+
+# run the docker container locally
+docker run -p 27960:27960/udp -it quake3 # or ./q3s start
 ```
 
-The flag `-a` means allow-empty.
+After this process, you should be able to connect to your local server from the multiplayer section in your client quake3.
 
-In this case the deploy system will use a timestamp code as hash in order to cause changes in the environment.
+# 5. Building and deploying manually 💻
 
-# 6. Troubleshooting ⚡️
+In order to have more control during the building and deployment process, you can take the following steps:
+
+1. Add permissions to the main script
+
+```bash
+chmod +x q3s
+```
+
+2. Copy the `pak[0-8].pk3` dependencies into the `lib/baseq3` folder or let the script download them for you:
+
+```bash
+./q3s prepare
+```
+
+3. Build the Docker image:
+
+```bash
+./q3s build
+```
+
+4. Run the server in a container:
+
+```bash
+./q3s start
+```
+
+5. Create Google Cloud cluster
+
+```bash
+./q3s create:cluster
+```
+
+6. Deploy the container to the cluster
+
+```bash
+./q3s deploy
+```
+
+# 6. Erasing server from Google Cloud
+
+To erease your server completely, run the following command:
+
+```bash
+./q3s delete:remote
+```
+
+**This will permanently erase your cluster, forever. You can not revert this process.**
+
+This works very well when you want to prevent your server from incurring increased costs on Google Cloud. No cost will be generated because your server will be completely erased.
+
+You can play with the `create:remote` and `delete:remote` commands for only have your server live when you are using it.
+
+# 7. Considerations 🔶
+
+**All deployments to Google Cloud Kubernetes will trigger changes only if a new commit is detected in the repository.**
+
+The deploy system provided here uses the latest commit hash in order to identify changes in the environment and tell to Kubernetes that the container must be re-deployed.
+
+If you want to force the deploy without commit your changes, you can run:
+
+```bash
+./q3s deploy:force
+```
+
+Internally, this will run the deploy script using the `-a` flag which means `allow-empty`.
+
+In this case, the deploy system will use a timestamp as hash in order to cause changes in the environment allowing deploy as normal.
+
+# 8. Troubleshooting ⚡️
 
 - Permission denied when running the scripts:
 
 ```bash
-chmod 755 deploy.sh prepare.sh
+# for the main script
+chmod +x q3s
+
+# for the task scripts
+chmod +x ./scripts/*.sh
 ```
 
 ---
 
-**diegoulloao · 2022**
+**diegoulloao · 2023**
