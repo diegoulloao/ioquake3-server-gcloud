@@ -121,19 +121,19 @@ In order to have more control during the building and/or deployment process, you
 chmod +x q3s
 ```
 
-2. Copy the `pak[0-8].pk3` dependencies into the `lib/baseq3` folder or let the script download them for you:
+2. Copy the `pak[0-8].pk3` dependencies into the `lib/baseq3` folder or let the script download them for you
 
 ```bash
 ./q3s prepare
 ```
 
-3. Build the Docker image:
+3. Build the Docker image
 
 ```bash
 ./q3s build
 ```
 
-4. Run the server in a container:
+4. Run the server in a container
 
 ```bash
 ./q3s start
