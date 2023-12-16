@@ -23,7 +23,7 @@
 
 <!-- [Read more +](https://github.com/diegoulloao/ioquake3-server-gcloud/tree/main/docs/prerequisites.md) -->
 
-# 1. Add the environment variables
+# 1. Add environment variables 💎
 
 Copy the `.env.example -> .env` and fill the environment variables for **projects** and **clusters** by taking the values from your google cloud account:
 
@@ -46,7 +46,7 @@ You can customize the server by editing the `server.cfg` file.
 > [!NOTE]
 > You will need to rebuild the docker container every time your `server.cnf` file changes
 
-# 3. Q3 server to Google Cloud
+# 3. Q3 server to Google Cloud 🌐
 
 **Get your server ready to play in 1 command:**
 
@@ -73,33 +73,51 @@ quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 > [!NOTE]
 > Your Google Cloud CLI need to be properly linked to your account
 
-# 4. Run server on localhost
+# 4. Run server on localhost 🚀
 
-Please follow the steps `1-4` described in the next section.
+Please follow the steps `1-4` described in the next section:
 
-Or just run manually:
+[5. Build and deploy manually](#5-build-and-deploy-manually-) <small>(recommended)</small>
+
+<details>
+  <summary>Alternatively you can run each command manually <small>(advanced)</small></summary>
+
+  <br />
+  
+  1. Give permissions to all scripts (if you did not)
+  ```bash
+chmod +x ./scripts/*.sh
+  ```
+
+2. Copy all pk3 files inside `baseq3` or let the script download them for you
 
 ```bash
-# give permissions to all scripts (if you did not)
-chmod +x ./scripts/*.sh
-
-# copy the pk3 files into the baseq3 folder or download them automatically by running
-./scripts/prepare.sh # or ./q3s prepare
-
-# build the docker image
-docker build -t quake3 . # or ./q3s build
-
-# run the docker container locally
-docker run -p 27960:27960/udp -it quake3 # or ./q3s start
+./scripts/prepare.sh
 ```
 
-After this process, you should be able to connect to your local server from the multiplayer section in your client quake3.
+3. Build the docker image
+
+```bash
+docker build -t quake3 .
+```
+
+4. Run the docker container
+
+```bash
+docker run -p 27960:27960/udp -it quake3
+```
+
+</details>
+
+<br />
+
+After the process, you should be able to connect to your local server from the multiplayer section in your client quake3.
 
 # 5. Build and deploy manually 💻
 
-In order to have more control during the building and deployment process, you can take the following steps:
+In order to have more control during the building and/or deployment process, you can go through the following steps:
 
-1. Add permissions to the main script
+1. Add permissions to the main script (if you did not)
 
 ```bash
 chmod +x q3s
@@ -123,6 +141,10 @@ chmod +x q3s
 ./q3s start
 ```
 
+**At this step you have the server running on localhost** 🚀
+
+---
+
 5. Create Google Cloud cluster
 
 ```bash
@@ -135,7 +157,17 @@ chmod +x q3s
 ./q3s deploy
 ```
 
-# 6. Erase server from Google Cloud
+**Now is live on Google Cloud** 🌐
+
+---
+
+**Important:**
+
+You only need to do this process once, after that, you will need to rebuild the image only if changes are applied to your `server.cnf` file.
+
+Next time you want to run your server locally just use the `./q3s start` command.
+
+# 6. Erase server from Google Cloud ⭕
 
 To erase your server completely, run the following command:
 
@@ -166,7 +198,7 @@ Internally, this will run the deploy script using the `-a` flag which means `all
 
 In this case, the deploy system will use a timestamp as hash in order to cause changes in the environment allowing deploy as normal.
 
-# 8. Command list
+# 8. Command list ❔
 
 You can list all the commands available from your terminal by running:
 
@@ -174,7 +206,7 @@ You can list all the commands available from your terminal by running:
 ./q3s help
 ```
 
-**Help**
+**Help: commands**
 
 ```
 +----------------+-----------------------------------------------------------------------------+
