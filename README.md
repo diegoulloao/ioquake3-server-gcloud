@@ -137,7 +137,7 @@ chmod +x q3s
 
 # 6. Erase server from Google Cloud
 
-To erease your server completely, run the following command:
+To erase your server completely, run the following command:
 
 ```bash
 ./q3s delete:remote
