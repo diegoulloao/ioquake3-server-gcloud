@@ -58,12 +58,24 @@ You can customize the server by editing the `server.cfg` file.
 
 1. add permissions to all scripts
 2. download all pk3 files
-3. build the docker image
-4. run the docker container
-5. create the google cloud cluster in your account
-6. deploy the container to your google cloud cluster
+3. create the google cloud cluster in your account
+4. build the docker image
+5. deploy the image to your google cloud cluster
 
-**After a couple of seconds your server should be online and ready to play:**
+> [!IMPORTANT]
+> Your Google Cloud CLI need to be properly linked to your account
+
+**After a couple of minutes your server should be online and ready to play.**
+
+---
+
+**Run the following command:**
+
+```bash
+./q3s ip
+```
+
+Until the `external-ip` is resolved:
 
 ```
 NAME     TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)           AGE
@@ -71,7 +83,7 @@ quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 ```
 
 > [!NOTE]
-> Your Google Cloud CLI need to be properly linked to your account
+> The connection to the server may succeed after a couple of seconds after the "external ip" is resolved
 
 # 4. Run server on localhost 🚀
 
