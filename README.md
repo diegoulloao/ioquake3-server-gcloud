@@ -92,7 +92,7 @@ quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 
 # 4. Run server on localhost 🚀
 
-Please follow the steps `1-4` described in the next section: [5. Build and deploy manually](#5-build-and-deploy-manually-) <small>(recommended)</small>
+Please follow the steps `1-3` described in the next section: [5. Build and deploy manually](#5-build-and-deploy-manually-) <small>(recommended)</small>
 
 <details>
   <summary>Alternatively you can run each command <small>(advanced)</small></summary>
@@ -140,25 +140,19 @@ After the process, you should be able to connect to your local server from the m
 
 In order to have more control during the building and/or deployment process, you can go through the following steps:
 
-1. Add permissions to the main script (if you did not)
-
-```bash
-chmod +x q3s
-```
-
-2. Copy the `pk3` dependencies into the `lib/baseq3` folder or let the script download them for you
+1. Copy the `pk3` dependencies into the `lib/baseq3` folder or let the script download them for you
 
 ```bash
 ./q3s prepare
 ```
 
-3. Build the Docker image
+2. Build the Docker image
 
 ```bash
 ./q3s build
 ```
 
-4. Run the server in a container
+3. Run the server in a container
 
 ```bash
 ./q3s start
@@ -168,13 +162,13 @@ chmod +x q3s
 
 ---
 
-5. Create Google Cloud cluster
+4. Create Google Cloud cluster
 
 ```bash
 ./q3s create:cluster
 ```
 
-6. Deploy the container to the cluster
+5. Deploy the container to the cluster
 
 ```bash
 ./q3s deploy
