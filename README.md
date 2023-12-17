@@ -168,7 +168,7 @@ In order to have more control during the building and/or deployment process, you
 ./q3s create:cluster
 ```
 
-5. Deploy the container to the cluster
+5. Deploy the image to the cluster
 
 ```bash
 ./q3s deploy
