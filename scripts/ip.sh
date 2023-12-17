@@ -9,7 +9,7 @@ set -a; source .env; set +a
 echo ""
 
 # get ip from cluster
-kubectl get svc $CLUSTER
+kubectl get svc quake3
 
 echo ""
 exit 0
