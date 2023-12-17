@@ -25,7 +25,7 @@
 
 # 1. Add environment variables 💎
 
-Copy the `.env.example -> .env` and fill the environment variables for **projects** and **clusters** by taking the `project-id` from your google cloud account.
+Copy the `.env.example -> .env` and fill the environment variables for the **project** and **cluster** sections by taking the `project-id` from your google cloud account.
 
 > [!NOTE]
 > Is not necessary to create the cluster, the script will do it for you given the zone
