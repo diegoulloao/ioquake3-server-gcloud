@@ -54,4 +54,4 @@ if [ -z "$run_cmd" ]; then
 fi
 
 # execute the command
-$run_cmd
+eval $run_cmd
