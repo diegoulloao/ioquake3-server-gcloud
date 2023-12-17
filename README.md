@@ -88,7 +88,7 @@ quake3   LoadBalancer   11.104.2.XXX   35.172.21.XXX   27960:32108/UDP   0s
 ```
 
 > [!NOTE]
-> The connection to the server may succeed after a couple of seconds that the "external ip" is resolved
+> The connection to the server may succeed after a couple of seconds that the `external-ip` is resolved
 
 # 4. Run server on localhost 🚀
 
