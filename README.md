@@ -40,6 +40,8 @@ CLUSTER=quake3-cluster-1
 ZONE=us-central-1
 ```
 
+[Read about cluster zones +](https://cloud.google.com/compute/docs/regions-zones)
+
 # 2. Configure the Server ⚙️
 
 You can customize the server by editing the `server.cfg` file.
