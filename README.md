@@ -48,7 +48,7 @@ You can customize the server by editing the `server.cfg` file.
 
 **This step is not necessary**, the repository comes with a ready-made server configuration.
 
-> [!NOTE]
+> [!IMPORTANT]
 > You will need to rebuild the docker container every time your `server.cfg` file changes
 
 # 3. Q3 server to Google Cloud 🌐
