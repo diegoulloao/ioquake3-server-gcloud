@@ -70,11 +70,11 @@ You can customize the server by editing the `server.cfg` file.
 > [!IMPORTANT]
 > Your Google Cloud CLI need to be properly linked to your account
 
-**After a couple of minutes your server should be online and ready to play.**
+**After a couple of minutes your server should be online and ready to play** 👾
 
 ---
 
-**Run the following command:**
+**Run the following command to get the IP:**
 
 ```bash
 ./q3s ip
