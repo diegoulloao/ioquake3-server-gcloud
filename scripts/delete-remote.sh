@@ -15,7 +15,7 @@ start_time=$(date +%s)
 # user feedback output
 echo "\n\033[0;36m
 ******************************************************************************
-        Deleting Cluster $CLUSTER from Google Cloud ... [average time: 7min]
+  Deleting Cluster $CLUSTER from Google Cloud ... [average time: 7min]
 ******************************************************************************
 \033[0m"
 

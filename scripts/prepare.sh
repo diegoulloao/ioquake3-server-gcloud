@@ -14,7 +14,7 @@ declare -r pak="https://github.com/diegoulloao/ioquake3-mac-install/raw/master/d
 
 echo "\033[0;36m
 ******************************************************************************
-        Checking for Quake3 dependencies ...
+  Checking for Quake3 dependencies ...
 ******************************************************************************
 \033[0m"
 

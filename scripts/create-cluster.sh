@@ -15,7 +15,7 @@ start_time=$(date +%s)
 # user feedback output
 echo "\033[0;36m
 ******************************************************************************
-        Creating Cluster $CLUSTER in Google Cloud ... [average time: 9min]
+  Creating Cluster $CLUSTER in Google Cloud ... [average time: 9min]
 ******************************************************************************
 \033[0m"
 

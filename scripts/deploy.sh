@@ -33,7 +33,7 @@ fi
 # deploying user feedback message
 echo "\033[0;36m
 ******************************************************************************
-        Building Docker image ...
+  Building Docker image ...
 ******************************************************************************
 \033[0m"
 
@@ -46,7 +46,7 @@ docker build --platform=linux/amd64 -t quake3 .
 # deploying user feedback message
 echo "\n\033[0;36m
 ******************************************************************************
-        Deploying container to Google Cloud ...
+  Deploying container to Google Cloud ...
 ******************************************************************************
 \033[0m"
 
