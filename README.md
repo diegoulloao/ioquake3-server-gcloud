@@ -37,7 +37,7 @@ CONTAINER_IMAGE=quake3:latest
 
 # cluster specific
 CLUSTER=quake3-cluster-1
-ZONE=us-central-1
+ZONE=us-central1
 ```
 
 [Read about cluster zones +](https://cloud.google.com/compute/docs/regions-zones)
