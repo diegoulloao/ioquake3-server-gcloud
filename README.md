@@ -247,7 +247,7 @@ You can list all the commands available from your terminal by running:
 chmod +x q3s
 
 # for the task scripts
-chmod +x ./scripts/*.sh
+./q3s permissions
 ```
 
 #### `2. Server is deployed but I cannot connect`
