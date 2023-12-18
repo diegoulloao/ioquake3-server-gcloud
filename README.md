@@ -49,7 +49,7 @@ You can customize the server by editing the `server.cfg` file.
 **This step is not necessary**, the repository comes with a ready-made server configuration.
 
 > [!NOTE]
-> You will need to rebuild the docker container every time your `server.cfg` file changes
+> You will need to rebuild the docker image every time your `server.cfg` file changes
 
 # 3. Q3 server to Google Cloud 🌐
 
@@ -245,7 +245,7 @@ You can list all the commands available from your terminal by running:
 
 # 9. Troubleshooting ⚡️
 
-- Permission denied when running the scripts:
+#### `1. Permission denied when running the scripts`
 
 ```bash
 # for the main script
@@ -254,6 +254,21 @@ chmod +x q3s
 # for the task scripts
 chmod +x ./scripts/*.sh
 ```
+
+#### `2. Server is deployed but I cannot connect`
+
+Check that the `pk3` files are not corrupted.
+
+Try deleting all the files inside `lib/baseq3` and then running the `./q3s prepare` command for download them again.
+
+After that, you need to rebuild the docker image and redeploy to google cloud by running:
+
+```bash
+./q3s build
+./q3s deploy:force
+```
+
+You should be able to connect to your server after a couple of seconds.
 
 ---
 
