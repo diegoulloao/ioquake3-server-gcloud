@@ -252,11 +252,11 @@ chmod +x ./scripts/*.sh
 
 #### `2. Server is deployed but I cannot connect`
 
-Check that the `pk3` files are not corrupted.
+Check that the `pk3` files are not corrupted, this can cause an error when exposing the q3 server.
 
 Try deleting all the files inside `lib/baseq3` and then running the `./q3s prepare` command for download them again.
 
-After that, you need to rebuild the docker image and redeploy to google cloud by running:
+After that, you need to rebuild the docker image and redeploy it to google cloud by running:
 
 ```bash
 ./q3s build
