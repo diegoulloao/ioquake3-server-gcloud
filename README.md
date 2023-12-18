@@ -99,24 +99,19 @@ Please follow the steps `1-3` described in the next section: [5. Build and deplo
 
   <br />
   
-  1. Give permissions to all scripts (if you did not)
-  ```bash
-chmod +x ./scripts/*.sh
-  ```
-
-2. Copy all pk3 files inside `lib/baseq3` or let the script download them for you
+1. Copy all pk3 files inside `lib/baseq3` or let the script download them for you
 
 ```bash
 ./scripts/prepare.sh
 ```
 
-3. Build the docker image
+2. Build the docker image
 
 ```bash
 docker build -t quake3 .
 ```
 
-4. Run the docker container
+3. Run the docker container
 
 ```bash
 docker run -p 27960:27960/udp -it quake3
