@@ -19,7 +19,8 @@
 1. Google Cloud account
 2. Google Cloud CLI installed, configured and linked to your account
 3. Docker
-4. Git
+4. Kubectl
+5. Git
 
 <!-- [Read more +](https://github.com/diegoulloao/ioquake3-server-gcloud/tree/main/docs/prerequisites.md) -->
 
